@@ -1,22 +1,10 @@
 {
-  "name": "react-desc",
-  "version": "4.1.3",
-  "description": "Add an schema to your React components based on React PropTypes.",
-  "authors": [
-    "Shimrit (Shimi) Yacobi",
-    "Alan Souza",
-    "Bryan Jacquot",
-    "Chris Carlozzi",
-    "Eric Soderberg"
-  ],
+  "name": "react-descr-extend",
+  "version": "1.0.0",
+  "description": "Add an schema to your React components based on React PropTypes. and extend react-desc",
+  "authors": "James Wong",
   "main": "lib/index.js",
-  "homepage": "http://grommet.io",
-  "bugs": "https://github.com/grommet/react-desc/issues",
-  "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/grommet/react-desc.git"
-  },
+  "license": "MIT",
   "peerDependencies": {
     "prop-types": "15.x",
     "react": ">= 15.5.4 < 17 || 17.x.x"

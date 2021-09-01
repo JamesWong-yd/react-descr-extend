@@ -12,6 +12,8 @@ const documentedPropType = {
   description: addPropTypeDocumentationField('description'),
   deprecated: addPropTypeDocumentationField('deprecated'),
   format: addPropTypeDocumentationField('format'),
+  isMain: addPropTypeDocumentationField('isMain'),
+  version: addPropTypeDocumentationField('version'),
 };
 
 const createPropType = (type) => {
@@ -22,16 +24,16 @@ const createPropType = (type) => {
   Object.defineProperty(
     propTypeObj,
     'isRequired', {
-      get: function getRequired() {
-        if (!this.reactDesc) {
-          this.reactDesc = {};
-        }
-        this.reactDesc.required = true;
-        return this;
-      },
-      enumerable: true,
-      configurable: true,
+    get: function getRequired() {
+      if (!this.reactDesc) {
+        this.reactDesc = {};
+      }
+      this.reactDesc.required = true;
+      return this;
     },
+    enumerable: true,
+    configurable: true,
+  },
   );
   return propTypeObj;
 };
@@ -45,16 +47,16 @@ const createPropTypeWithArgs = type => (args) => {
   Object.defineProperty(
     propTypeObj,
     'isRequired', {
-      get: function getRequired() {
-        if (!this.reactDesc) {
-          this.reactDesc = {};
-        }
-        this.reactDesc.required = true;
-        return this;
-      },
-      enumerable: true,
-      configurable: true,
+    get: function getRequired() {
+      if (!this.reactDesc) {
+        this.reactDesc = {};
+      }
+      this.reactDesc.required = true;
+      return this;
     },
+    enumerable: true,
+    configurable: true,
+  },
   );
   return propTypeObj;
 };
@@ -73,12 +75,12 @@ function definePropType(type) {
   Object.defineProperty(
     PropTypes,
     type, {
-      get: function getPropType() {
-        return createPropType(type);
-      },
-      enumerable: true,
-      configurable: true,
+    get: function getPropType() {
+      return createPropType(type);
     },
+    enumerable: true,
+    configurable: true,
+  },
   );
 }
 
@@ -86,12 +88,12 @@ function definePropTypeWithArgs(type) {
   Object.defineProperty(
     PropTypes,
     type, {
-      get: function getPropType() {
-        return createPropTypeWithArgs(type);
-      },
-      enumerable: true,
-      configurable: true,
+    get: function getPropType() {
+      return createPropTypeWithArgs(type);
     },
+    enumerable: true,
+    configurable: true,
+  },
   );
 }
 

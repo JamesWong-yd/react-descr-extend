@@ -1,10 +1,5 @@
 # react-desc
 
-[![Slack](http://alansouzati.github.io/artic/img/slack-badge.svg)](http://slackin.grommet.io)
-[![Build Status](https://travis-ci.org/grommet/react-desc.svg?branch=master)](https://travis-ci.org/grommet/react-desc)
-[![Code Climate](https://codeclimate.com/github/grommet/react-desc/badges/gpa.svg)](https://codeclimate.com/github/grommet/react-desc)
-[![Test Coverage](https://codeclimate.com/github/grommet/react-desc/badges/coverage.svg)](https://codeclimate.com/github/grommet/react-desc/coverage)
-
 Add a schema to your React components based on React PropTypes
 
 ## Installation
@@ -41,11 +36,11 @@ export const AnchorWithSchema = describe(Anchor)
   .description('A text link');
 
 AnchorWithSchema.propTypes = {
-  path: PropTypes.string.describe('React-router path to navigate to when clicked').isRequired,
-  href: PropTypes.string.describe('link location').deprecated('use path instead'),
+  path: PropTypes.string.isRequired.description('React-router path to navigate to when clicked').isMain(true).version('1.0.0'),
+  href: PropTypes.string.description('link location').deprecated('use path instead'),
   id: ReactPropTypes.string, // this will be ignored for documentation purposes
   title: PropTypes.custom(() => {}).description('title used for accessibility').format('XXX-XX'),
-  target: PropTypes.string.describe('target link location').defaultValue('_blank'),
+  target: PropTypes.string.description('target link location').defaultValue('_blank'),
 };
 
 export default Anchor;
@@ -72,7 +67,9 @@ export default Anchor;
             "description": "React-router path to navigate to when clicked",
             "name": "path",
             "required": true,
-            "format": "string"
+            "format": "string",
+            "isMain": true,
+            "version": "1.0.0"
           },
           {
             "description": "link location.",
@@ -185,17 +182,5 @@ export default Anchor;
     * **description(value)**: function that receives a string with the PropType description.
     * **deprecated(value)**: function that receives a string with the deprecation message.
     * **format(value)**: function that receives a string with the PropTypex format.
-
-## Why not [react-docgen](https://github.com/reactjs/react-docgen)?
-
-react-docgen is a great project but it relies on an AST parser to generate documentation. Most of the time this is ok, but for us the following use cases were hard to solve without a more verbose way to define propTypes:
-
-* Define deprecated properties
-* Define a required property for custom function:
-
-  ```javascript
-  Anchor.propTypes = {
-    test: () => { ... } // isRequired is not present here
-  }
-  ```
-* Allow internal comments for properties without it showing up in the documentation
+    * **isMain(bool)**: function that receives a bool with the PropTypex isMain.
+    * **version(string)**: function that receives a string with the PropTypex version.
