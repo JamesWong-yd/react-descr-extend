@@ -1,7 +1,7 @@
 {
   "name": "react-descr-extend",
   "version": "1.0.0",
-  "description": "Add an schema to your React components based on React PropTypes. and extend react-desc",
+  "description": "Add an schema to your React components based on React PropTypes.",
   "authors": "James Wong",
   "main": "lib/index.js",
   "license": "MIT",
